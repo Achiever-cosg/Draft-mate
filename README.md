@@ -1,2 +1,2 @@
 # Draft-mate
-An AI Email Writing Assistant
+An AI based Smart Email Writing Assistant
