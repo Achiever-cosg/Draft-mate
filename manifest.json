@@ -5,6 +5,7 @@
   "manifest_version": 3,
   "permissions": ["activeTab", "storage"],
   "host_permissions": [
+      "https://draft-mate-server.vercel.app/*",
       "*://mail.google.com/*"
   ],
   "content_scripts": [

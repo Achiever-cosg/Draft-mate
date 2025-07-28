@@ -74,22 +74,6 @@ function injectButton() {
     // adds the class ai-reply-button to the button 
     button.classList.add('ai-reply-button');
 
-    let prompt = `Please write a reply to this email in a professional tone. Keep it in not more than 3 short paras. 
-    Please ignore the footer stuffs mentioned in the mail, such as unsubscribe, etc`
-
-    let prompt2 = `You are a helpful and professional assistant that writes smart, human-like email replies.
-
-Write a reply to the following email. Match the tone of the original sender — whether it's formal, friendly, urgent, or casual — but keep the response professional and respectful.
-
-Make sure the response:
-- Is **polite**, **clear**, and **to the point**
-- Has **3 to 4 short paragraphs**, maximum
-- **Adapts** to the topic and tone of the original message
-- Does **not repeat/add information unnecessarily**
-- Avoids adding any boilerplate or extra lines after the sign-off (like links, disclaimers, or taglines)
-
-Here is the email to reply to:`;
-
     // adds the click event listener to the button that calls the generateReply function to generate the email reply
     button.addEventListener('click', async () => {
         // try catch block that handles exceptions
@@ -100,22 +84,16 @@ Here is the email to reply to:`;
             const emailContent = getEmailContent();
             // makes post request to api endpoint to generate the email reply
 
-            const response = await fetch("https://api.cohere.ai/v1/generate", {
+            const response = await fetch("https://draft-mate-server.vercel.app/", {
                 method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                    "Authorization": `Bearer ${COHERE_API_KEY}`  // Replace with your Cohere API key
-                },
-                body: JSON.stringify({
-                    model: "command",  // or "command-light" for faster responses
-                    prompt: `${prompt1}: \n\n${emailContent}`,
-                    max_tokens: 300,
-                    temperature: 0.7
-                })
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ emailContent })
             });
+
 
             // throws error if response is not ok
             if (!response.ok) {
+                console.log(error);
                 throw new Error('API Request Failed');
             }
 
