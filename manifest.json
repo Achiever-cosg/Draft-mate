@@ -1,5 +1,5 @@
 {
-  "name": "DraftMate",
+  "name": "DraftMail AI",
   "description": "AI-powered email reply generator",
   "version": "1.0",
   "manifest_version": 3,
@@ -23,6 +23,6 @@
   }
 ],
   "action": {
-    "default_title": "DraftMate - AI Email writing Assistant"
+    "default_title": "DraftMail AI - AI Email writing Assistant"
   }
 }
