@@ -1,13 +1,16 @@
 {
   "name": "DraftMail AI",
   "description": "AI-powered email reply generator",
-  "version": "1.0",
+  "version": "1.0.0",
   "manifest_version": 3,
   "permissions": ["activeTab", "storage"],
   "host_permissions": [
       "https://draft-mate-server.vercel.app/*",
       "*://mail.google.com/*"
   ],
+  "background": {
+    "service_worker": "background.js"
+  },
   "content_scripts": [
       {
       "js": ["content.js"],
@@ -18,11 +21,17 @@
   ],
   "web_accessible_resources": [
   {
-    "resources": [ "icons/*" ],
+    "resources": [ "assets/ext-icon.png" ],
     "matches": ["*://mail.google.com/*"]
   }
 ],
   "action": {
-    "default_title": "DraftMail AI - AI Email writing Assistant"
+    "default_icon": {
+      "16": "assets/ext-icon.png",
+      "24": "assets/ext-icon.png",
+      "32": "assets/ext-icon.png"
+    },
+    "default_title": "DraftMail AI",
+    "default_popup": "popup.html"
   }
 }
