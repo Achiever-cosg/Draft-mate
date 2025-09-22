@@ -1,3 +1,3 @@
 chrome.runtime.onInstalled.addListener(() => {
-  console.log("My AI Emauil writing Assistant installed.");
+  console.log("AI Emaiil writing Assistant installed.");
 });

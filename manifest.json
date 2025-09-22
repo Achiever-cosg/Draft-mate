@@ -15,7 +15,6 @@
       {
       "js": ["content.js"],
       "matches": ["*://mail.google.com/*"],
-      "css": ["content.css"],
       "run_at": "document_end"
       }
   ],
@@ -31,7 +30,7 @@
       "24": "assets/ext-icon.png",
       "32": "assets/ext-icon.png"
     },
-    "default_title": "DraftMail AI",
+    "default_title": "DrafMail AI",
     "default_popup": "popup.html"
   }
 }
